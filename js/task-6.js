@@ -12,19 +12,16 @@ function createBoxes() {
         return;
     }
 
-    clearBoxes();
-
     let size = 30;
+    let boxesHTML = ''; 
     for (let i = 0; i < amount; i++) {
-        const box = document.createElement('div');
-        box.style.width = `${size}px`;
-        box.style.height = `${size}px`;
-        box.style.backgroundColor = getRandomHexColor();
-        boxesContainer.appendChild(box);
+        const color = getRandomHexColor();
+        boxesHTML += `<div style="width: ${size}px; height: ${size}px; background-color: ${color}"></div>`;
         size += 10;
     }
 
-    input.value = '';
+    boxesContainer.innerHTML = boxesHTML;
+    input.value = ''; 
 }
 
 function destroyBoxes() {
